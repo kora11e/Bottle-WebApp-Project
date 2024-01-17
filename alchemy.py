@@ -1,11 +1,24 @@
-from sqlite3 import create_engine, ForeignKey, Column, String, Integer, CHAR
+import sqlite3, bottle_sqlite
+
+conn = sqlite3.connect('./DB/games-features.csv')
+
+c = conn.cursor()
 
 
+conn.close()
 
-Base = declarative_base()
+def method1():
+    c.execute()
+    conn.commit()
 
-class Person(Base):
-    __tablename__ = 'persons'
+def method2():
+    c.execute()
+    conn.commit()
 
-    ssn = Column('ssn', Integer, primary_key = True)
-    furstname = []
+def method3():
+    c.execute()
+    conn.commit()
+
+def method4():
+    c.execute()
+    conn.commit()
