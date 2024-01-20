@@ -1,4 +1,7 @@
-import sqlite3, bottle_sqlite
+import sqlite3, SQLitePlugin, controlMethods
+
+
+install(SQLitePlugin(dbfile='/tmp/test.db'))
 
 conn = sqlite3.connect('./DB/games-features.csv')
 

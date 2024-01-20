@@ -1,3 +1,20 @@
 body {
     background-color: aquamarine;
+    text-align: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: latoBold;
+    src: url(./fonts/Lato/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: latoBlack;
+    src: url(./fonts/Lato/Lato-Black.ttf);
+}
+
+@font-face {
+    font-family: latoRegular;
+    src: url(./fonts/Lato/Lato-Regular.ttf);
 }

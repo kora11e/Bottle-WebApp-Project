@@ -1,31 +1,73 @@
-from bottle import run, route, template
+from bottle import run, route, template, static_file
 import controlMethods, alchemy
 
-@route('./styles.style.css')
-def stylization():
-    return static_file('./styles.style.css', root='static')
+
+@route('/static/:path#.+#', name='styles')
+def static(path):
+    return static_file(path, root='./styles')
+
+
+@route('./author')
+@route('./author/')
+def authors(author = 'Karol Rochalski'):
+    return template('''
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact information</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <main>
+        <h1>Contact section</h1>  
+    </main>
+    <div>
+        <div>
+            Name: {author}
+        </div>
+        <div>
+            Phone Number: 516 8222 086
+        </div>
+        <div>
+            <p><a href="mailto:k.rochalski@student.uw.edu.pl">Send email</a></p>
+        </div>
+    </div>
+  </body>
+</html>
+            ''' , )
+
 
 @route('/')
 def home():
-    return '<h>Hello World</h>'
+    return template('./views/main.tpl')
 
 
-@route('/dataset1/')
-@route('/dataset1')
-def page1():
-    return '<h>Hello Here</h>'
+@route('/database1/')
+@route('/database1')
+def database1():
+    return template('./views/database1.tpl')
 
 
-@route('/dataset2/')
-@route('/dataset2')
-def page1():
-    return template()
+@route('/database2/')
+@route('/database2')
+def database2():
+    return template('./views/database2.tpl')
 
 
-@route('/author/')
-@route('/author')
+@route('/authors/')
+@route('/authors')
 def author():
     return template('./views/authors.tpl')
+
+
+@route('/reroute')
+@route('/reroute/')
+def home():
+    return template('/views.reroute.tpl')
 
 
 #starting the App
