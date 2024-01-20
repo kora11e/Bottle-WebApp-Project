@@ -14,7 +14,7 @@
     </main>
     <div>
         <div>
-            Name: Karol Rochalski
+            Name: author
         </div>
         <div>
             Phone Number: 516 8222 086

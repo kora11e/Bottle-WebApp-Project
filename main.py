@@ -1,6 +1,8 @@
 from bottle import run, route, template, static_file
-import controlMethods, alchemy
+import controlMethods, sqlite3, connector
 
+
+#connector.init()
 
 @route('/static/:path#.+#', name='styles')
 def static(path):
@@ -57,6 +59,17 @@ def database1():
 def database2():
     return template('./views/database2.tpl')
 
+@route('/database/')
+@route('/database')
+def todo_list():
+    conn = sqlite3.connect('./DB/db.db')
+    c = conn.cursor()
+    
+    c.execute("SELECT * FROM todo")
+    result = c.fetchall()
+    c.close()
+
+    return str(result)
 
 @route('/authors/')
 @route('/authors')
