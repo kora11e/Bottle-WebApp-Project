@@ -11,3 +11,10 @@ def init():
     conn.execute("INSERT INTO todo (category, theitem) VALUES ('Activities','rack lawn')")
 
     conn.commit()
+
+    c = conn.cursor()
+    
+    c.execute("SELECT * FROM todo")
+    result = c.fetchall()
+    c.close()
+    return str(result)

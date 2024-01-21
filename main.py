@@ -1,5 +1,5 @@
 from bottle import run, route, template, static_file
-import controlMethods, sqlite3, connector
+import connector
 
 
 @route("/static/<filename>")
@@ -44,29 +44,10 @@ def authors(author = 'Karol Rochalski'):
 def home():
     return template('./views/main.tpl')
 
-
-@route('/database1/')
-@route('/database1')
-def database1():
-    return template('./views/database1.tpl')
-
-
-@route('/database2/')
-@route('/database2')
-def database2():
-    return template('./views/database2.tpl')
-
 @route('/database/')
 @route('/database')
 def todo_list():
-    conn = sqlite3.connect('./DB/db.db')
-    c = conn.cursor()
-    
-    c.execute("SELECT * FROM todo")
-    result = c.fetchall()
-    c.close()
-
-    return str(result)
+    connector.init()
 
 @route('/authors/')
 @route('/authors')
