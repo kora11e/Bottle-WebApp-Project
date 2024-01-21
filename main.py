@@ -2,12 +2,9 @@ from bottle import run, route, template, static_file
 import controlMethods, sqlite3, connector
 
 
-#connector.init()
-
-@route('/static/:path#.+#', name='styles')
-def static(path):
-    return static_file(path, root='./styles')
-
+@route("./static/<filename>")
+def static(filename):
+    return static_file(filename, root="./static")
 
 @route('./author')
 @route('./author/')
@@ -76,11 +73,16 @@ def todo_list():
 def author():
     return template('./views/authors.tpl')
 
+@route('/snake/')
+@route('/snake')
+def author():
+    return template('./views/snake.tpl')
 
 @route('/reroute')
 @route('/reroute/')
 def home():
-    return template('/views.reroute.tpl')
+    return template('./views/reroute.tpl')
+
 
 
 #starting the App
