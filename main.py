@@ -2,7 +2,7 @@ from bottle import run, route, template, static_file
 import controlMethods, sqlite3, connector
 
 
-@route("./static/<filename>")
+@route("/static/<filename>")
 def static(filename):
     return static_file(filename, root="./static")
 
