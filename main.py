@@ -1,10 +1,14 @@
-from bottle import run, route, template, static_file
-import connector
+from bottle import run, route, template, static_file, request, redirect, post, json, error
+import connector, sqlite3, json
 
 
 @route("/static/<filename>")
 def static(filename):
     return static_file(filename, root="./static")
+
+@error(a)
+def error(error):
+    return '<h1>You have Experienced an error!</h1>'
 
 @route('./author')
 @route('./author/')
@@ -47,7 +51,73 @@ def home():
 @route('/database/')
 @route('/database')
 def todo_list():
-    connector.init()
+    conn = sqlite3.connect('./DB/db.db')
+    conn.execute("CREATE TABLE todo (category char(50), theitem char(100),id INTEGER PRIMARY KEY )")
+    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','eggs')")
+    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','milk')")
+    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','bread')")
+    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Activities','snow tires')")
+    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Activities','rack lawn')")
+
+    conn.commit()
+
+    c = conn.cursor()
+    html = "<h1>To do List</h1> <p>Build row-by-row in Python</p>\n"
+    
+    c.execute("SELECT * FROM todo")
+    result = c.fetchall()
+
+    colnames = [description[0] for description in c.description]
+    numcol = len(colnames)
+
+    output = template('./views/database.tpl', rows=result, headings=colnames, numcol=numcol)
+    return output
+
+@route('/database/new/', method='POST')
+@route('/database/new', method='POST')
+def new_item():
+    print('New Post:', request.body.read())
+    theitem = request.forms.get('newcategory')
+
+    if theitem != '':
+
+        conn = sqlite3.connect('./DB/db.db')
+        c = conn.cursor()
+        c.execute('INSERT INTO todo (category, theitem) VALUES (?, ?)', (newcategory, theitem))
+        conn.commit()
+        c.close()
+
+    redirect('/database')
+
+@route('/database/delete', method='POST')
+@route('/database/delete/', method='POST')
+def delete_item():
+    print('Delete:', request.body.read())
+    theid = request.forms.get('delitem').strip()
+    print('theid:', theid)
+
+    conn = sqlite3.connect('./DB/db/db')
+    c = conn.cursor()
+    sqlstr = "DELETE FROM todo WHERE id=" + str(theid)
+    print(sqlstr)
+    conn.commit()
+    c.close()
+
+    redirect('/database')
+
+@route('/csv')
+@route('/csv/')
+def csv():
+    return template('./views/csv.tpl')
+
+@route('/jsondata')
+@route('/jsondata/')
+def jsonReader():
+    from bottle import response
+    from json import dumps
+    rv =[{"id":1, "name":"John"}]
+    response.content_type = 'application/json'
+    return dumps(rv) 
 
 @route('/authors/')
 @route('/authors')
@@ -56,7 +126,7 @@ def author():
 
 @route('/snake/')
 @route('/snake')
-def author():
+def snake():
     return template('./views/snake.tpl')
 
 @route('/reroute')

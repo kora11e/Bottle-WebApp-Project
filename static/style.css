@@ -1,10 +1,6 @@
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family: latoBold;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
 }
 
 body,
