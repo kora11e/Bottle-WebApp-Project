@@ -1,0 +1,33 @@
+body {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    background-color: antiquewhite;
+
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+#flex {
+    padding-top: 30px;
+    font-size: x-large;
+    font-weight: 600;
+
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#flex1 {
+    padding-top: 30px;
+    font-size: large;
+    font-weight: 600;
+
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}

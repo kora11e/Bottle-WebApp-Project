@@ -1,4 +1,4 @@
-from bottle import run, route, template, static_file, request, redirect, post, json, error
+from bottle import run, route, template, static_file, request, redirect, post, error, abort
 import connector, sqlite3, json
 
 
@@ -6,9 +6,13 @@ import connector, sqlite3, json
 def static(filename):
     return static_file(filename, root="./static")
 
-@error(a)
-def error(error):
-    return '<h1>You have Experienced an error!</h1>'
+@error(404)
+def error404(error):
+    return template('./views/error.tpl')
+
+@error(405)
+def error405(error):
+    return template('./views/error.tpl')
 
 @route('./author')
 @route('./author/')

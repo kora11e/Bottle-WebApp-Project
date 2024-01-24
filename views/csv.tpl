@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Page</title>
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="./static/mainStyle.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <script src='./static/read_csv.js'></script>
   </head>
