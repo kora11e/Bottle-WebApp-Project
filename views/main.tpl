@@ -23,7 +23,6 @@
           <div>
             <a href="/database"> SQL Database </a> <br>
             <a href="/csv"> CSVReader</a> <br>
-            <a href="/jsondata"> JSONReader</a> <br>
             <a href="/snake"> Snake Game</a> <br>
             <a href="/authors"> Author</a> <br>
           </div>

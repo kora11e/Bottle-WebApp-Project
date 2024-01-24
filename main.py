@@ -1,5 +1,5 @@
 from bottle import run, route, template, static_file, request, redirect, post, error, abort
-import connector, sqlite3, json
+import sqlite3, json, requests
 
 
 @route("/static/<filename>")
@@ -55,7 +55,7 @@ def home():
 @route('/database/')
 @route('/database')
 def todo_list():
-    conn = sqlite3.connect('./DB/db.db')
+    #conn = sqlite3.connect('./DB/db.db')
     #conn.execute("CREATE TABLE todo (category char(50), theitem char(100),id INTEGER PRIMARY KEY )")
     #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','eggs')")
     #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','milk')")
@@ -115,10 +115,10 @@ def delete_item():
 def csv():
     return template('./views/csv.tpl')
 
-@route('/jsondata')
-@route('/jsondata/')
-def jsonReader():
-    return template('./views/json.tpl')
+#@route('/jsondata')
+#@route('/jsondata/')
+#def jsonReader():
+#    return template('./views/json.tpl')
 
 @route('/authors/')
 @route('/authors')
