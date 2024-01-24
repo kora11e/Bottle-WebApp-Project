@@ -56,14 +56,14 @@ def home():
 @route('/database')
 def todo_list():
     conn = sqlite3.connect('./DB/db.db')
-    conn.execute("CREATE TABLE todo (category char(50), theitem char(100),id INTEGER PRIMARY KEY )")
-    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','eggs')")
-    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','milk')")
-    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','bread')")
-    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Activities','snow tires')")
-    conn.execute("INSERT INTO todo (category, theitem) VALUES ('Activities','rack lawn')")
+    #conn.execute("CREATE TABLE todo (category char(50), theitem char(100),id INTEGER PRIMARY KEY )")
+    #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','eggs')")
+    #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','milk')")
+    #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','bread')")
+    #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Activities','snow tires')")
+    #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Activities','rack lawn')")
 
-    conn.commit()
+    #conn.commit()
 
     c = conn.cursor()
     html = "<h1>To do List</h1> <p>Build row-by-row in Python</p>\n"
@@ -98,12 +98,13 @@ def new_item():
 def delete_item():
     print('Delete:', request.body.read())
     theid = request.forms.get('delitem').strip()
-    print('theid:', theid)
+    print('theid: ', theid)
 
-    conn = sqlite3.connect('./DB/db/db')
+    conn = sqlite3.connect('./DB/db.db')
     c = conn.cursor()
     sqlstr = "DELETE FROM todo WHERE id=" + str(theid)
     print(sqlstr)
+    c.execute(sqlstr)
     conn.commit()
     c.close()
 

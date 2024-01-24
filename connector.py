@@ -1,3 +1,5 @@
+#doesn't work as a function for some reason
+
 import sqlite3
 
 def init():
