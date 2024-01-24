@@ -117,7 +117,7 @@ def csv():
 @route('/jsondata')
 @route('/jsondata/')
 def jsonReader():
-    return template('') 
+    return template('./views/json.tpl')
 
 @route('/authors/')
 @route('/authors')
