@@ -2,6 +2,7 @@
 <form action='/database/new' method='POST'>
     <select name='newcategory'>
         <option value='Activities'>Activities</option>
+        <option value='Projects'>Projects</option>
         <option value='Shopping' selected>Shopping</option>
     </select>
     <input type='text' size='25' name='theitem'>

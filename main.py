@@ -55,7 +55,7 @@ def home():
 @route('/database/')
 @route('/database')
 def todo_list():
-    #conn = sqlite3.connect('./DB/db.db')
+    conn = sqlite3.connect('./DB/db.db')
     #conn.execute("CREATE TABLE todo (category char(50), theitem char(100),id INTEGER PRIMARY KEY )")
     #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','eggs')")
     #conn.execute("INSERT INTO todo (category, theitem) VALUES ('Shopping','milk')")
@@ -81,7 +81,8 @@ def todo_list():
 @route('/database/new', method='post')
 def new_item():
     print('New Post:', request.body.read())
-    theitem = request.forms.get('newcategory')
+    theitem = request.forms.get('theitem')
+    newcategory = request.forms.get('newcategory')
 
     if theitem != '':
 
