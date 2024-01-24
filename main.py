@@ -77,8 +77,8 @@ def todo_list():
     output = template('./views/database.tpl', rows=result, headings=colnames, numcol=numcol)
     return output
 
-@route('/database/new/', method='POST')
-@route('/database/new', method='POST')
+@route('/database/new/', method='post')
+@route('/database/new', method='post')
 def new_item():
     print('New Post:', request.body.read())
     theitem = request.forms.get('newcategory')
@@ -93,8 +93,8 @@ def new_item():
 
     redirect('/database')
 
-@route('/database/delete', method='POST')
-@route('/database/delete/', method='POST')
+@route('/database/delete', method='post')
+@route('/database/delete/', method='post')
 def delete_item():
     print('Delete:', request.body.read())
     theid = request.forms.get('delitem').strip()
@@ -117,11 +117,7 @@ def csv():
 @route('/jsondata')
 @route('/jsondata/')
 def jsonReader():
-    from bottle import response
-    from json import dumps
-    rv =[{"id":1, "name":"John"}]
-    response.content_type = 'application/json'
-    return dumps(rv) 
+    return template('') 
 
 @route('/authors/')
 @route('/authors')
