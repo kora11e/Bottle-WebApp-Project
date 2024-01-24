@@ -1,4 +1,4 @@
-fetch('./DB/items.json')
+fetch("./static/items.json")
 
 .then(function(response){
     return response.json()
@@ -13,10 +13,9 @@ fetch('./DB/items.json')
                 <td> ${item.name} </td>
                 <td> ${item.price} </td>
                 <td> ${item.stock} </td>
-                <td> ${item.special-code} </td>
             </tr>
         `
     }
 
-    placeholder.innerHTML = out
+    placeholder.innerHTML = JSON.stringify(out)
 })

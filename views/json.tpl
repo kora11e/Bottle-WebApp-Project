@@ -16,7 +16,6 @@
                     <th>name</th>
                     <th>price</th>
                     <th>stock</th>
-                    <th>special code</th>
                 </tr>
             </thead>
             <tbody id='data-output'>

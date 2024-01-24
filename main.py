@@ -16,7 +16,7 @@ def error405(error):
 
 @route('./author')
 @route('./author/')
-def authors(author = 'Karol Rochalski'):
+def authors():
     return template('''
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@ def authors(author = 'Karol Rochalski'):
     </main>
     <div>
         <div>
-            Name: {author}
+            Name: Karol Rochalski
         </div>
         <div>
             Phone Number: 516 8222 086
