@@ -1,12 +1,16 @@
-Bottle Application Project by Karol Rochalski
+<h1> Bottle Application Project </h1>
 
-Steps to run the application:
+<h2>Overview</h2>
 
-1. To run the program unzip the package and placed the folder called '' in reasonable place. 
-2. Make sure Python 3.3 or higher version is installed on your computer.
-3. Then run the file main.py. 
+The project was created as a final assignment for python programming classes. It utilizes MySQL Database, Bottle web framework and element of JavaScript.
 
-File/folder structure:
+<h2> Steps to run the application:</h2>
+
+1. To run the program unzip the package and and open tn in IDE.
+2. Make sure Python 3.3 or higher version is installed on your computer and you have web server installed.
+3. Run the file main.py by using command - python main.py -. 
+
+<h2>File/folder structure:</h2>
 
 1. DB - folder space for sqlite database and CSV file
 2. __pycache__ - internal framework cache files
