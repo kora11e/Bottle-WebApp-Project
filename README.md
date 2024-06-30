@@ -25,7 +25,7 @@ The program provides input for .csv files and allows to open them on the side. T
 <h2>File/folder structure:</h2>
 
 1. DB - folder space for sqlite database and CSV file
-~~2. __pycache__ - internal framework cache files~~
+2. ~~__pycache__ - internal framework cache files~~
 3. static - folder for static files including:
 	css stylesheets,
 	fonts from Google fonts website,
