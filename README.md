@@ -2,14 +2,20 @@
 
 <h2>Overview</h2>
 
-The project was created as a final assignment for python programming classes. It utilizes MySQL Database, Bottle web framework and element of JavaScript.
+The project was created as a final assignment for python programming classes. It utilizes MySQL Database, Bottle web framework and JavaScript on-site functionalities.
 
 <h2> Steps to run the application:</h2>
 
-1. To run the program unzip the package and and open tn in IDE.
-2. Make sure Python 3.3 or higher version is installed on your computer and you have web server installed.
-3. Run the file main.py by using command - python main.py -. 
-
+1. To run the program unzip the package and and open tn in IDE (preferably VSCode).
+2. Make sure Python 3.3 or higher version is installed on your computer and you have live server installed.
+3. Run the file main.py by using command:
+```python
+python main.py
+```
+4. Once the server is running open the local environment on port 8080 or copy the path below and paste it into browser:
+   ```
+   http://127.0.0.1:8080/
+   ```
 <h2>File/folder structure:</h2>
 
 1. DB - folder space for sqlite database and CSV file
