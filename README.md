@@ -13,13 +13,19 @@ The project was created as a final assignment for python programming classes. It
 python main.py
 ```
 4. Once the server is running open the local environment on port 8080 or copy the path below and paste it into browser:
-   ```
-   http://127.0.0.1:8080/
-   ```
+```
+http://127.0.0.1:8080/
+```
+
+<h2> Web Application Functionalities </h2>
+The website uses Model View Controller architecture to enable agile approach in coding consecutive features. The application contains main model file defining routing to static elements elements (CSS, JOSN data, JavaScript scripts), 7 views, error message callers and data manipulation techniques.
+
+The program provides input for .csv files and allows to open them on the side. The further subpages support HTTP methods GET, POST, DELETE to operate on a custom SQL database and finally implement browser snake game.
+
 <h2>File/folder structure:</h2>
 
 1. DB - folder space for sqlite database and CSV file
-2. __pycache__ - internal framework cache files
+~~2. __pycache__ - internal framework cache files~~
 3. static - folder for static files including:
 	css stylesheets,
 	fonts from Google fonts website,
@@ -29,4 +35,4 @@ python main.py
 5. independent files: executable main.py, git attributes, environmental variables and project legacies
 
 The projects consists of 5 accessible webpages and 3 internal methods. 
-All of them can be accessed after runnig the app from main window.
+All of them can be accessed after running the app from main window.
